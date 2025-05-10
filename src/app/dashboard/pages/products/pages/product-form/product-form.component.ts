@@ -5,6 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Notiflix from 'notiflix';
 import { ApiService } from '../../../../../shared/services/services/api.service';
 
+import {
+  NgLabelTemplateDirective,
+  NgOptionTemplateDirective,
+  NgSelectComponent,
+  NgSelectConfig,
+} from '@ng-select/ng-select';
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -27,8 +34,19 @@ export class ProductFormComponent implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private apiService: ApiService
-  ) {}
+    private apiService: ApiService,
+    private config: NgSelectConfig
+  ) {
+    this.config.notFoundText = 'Custom not found';
+    this.config.appendTo = 'body';
+    // set the bindValue to global config when you use the same
+    // bindValue in most of the place.
+    // You can also override bindValue for the specified template
+    // by defining `bindValue` as property
+    // Eg : <ng-select bindValue="some-new-value"></ng-select>
+    this.config.bindValue = 'value';
+  }
+
   ngAfterViewInit(): void {
     if (this.productId) {
       this.loadProduct();

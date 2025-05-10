@@ -18,7 +18,7 @@ import { ProductsComponent } from './products.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NgOptionComponent, NgSelectComponent } from '@ng-select/ng-select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -42,8 +42,7 @@ import { NgOptionComponent, NgSelectComponent } from '@ng-select/ng-select';
     NgxChartsModule,
     RouterModule,
     ReactiveFormsModule,
-    NgSelectComponent,
-    NgOptionComponent,
+    NgSelectModule,
   ],
 })
 export class ProductsModule {}

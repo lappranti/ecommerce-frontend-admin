@@ -11,7 +11,7 @@
                 </div>
                 <div class="flex flex-col gap-1">
                     <label for="status" class="form-label">Stock status</label>
-                    <ng-select appearance="outline" labelForId="status" [searchable]="false" formControlName="status">
+                    <ng-select formControlName="status">
                         <ng-option *ngFor="let statut of status" [value]="statut">{{statut}}</ng-option>
                     </ng-select>
                 </div>

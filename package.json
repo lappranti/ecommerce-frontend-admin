@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
-    "@ng-select/ng-select": "^14.7.0",
+    "@ng-select/ng-select": "v13.0",
     "@swimlane/ngx-charts": "^22.0.0-alpha.1",
     "d3": "^7.9.0",
     "ngx-image-cropper": "^8.0.0",
