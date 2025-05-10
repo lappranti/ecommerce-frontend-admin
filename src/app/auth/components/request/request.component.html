@@ -1,0 +1,23 @@
+<form [formGroup]="formGroup" class="w-full h-full  flex flex-col gap-4 ">
+    <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col gap-1 ">
+            <h2 class="text-center text-neutral-950 text-heading-5 ">Forgotten your password?</h2>
+            <p class="text-center  text-neutral-600 text-body-regular">Enter your email below, and we’ll send you a link
+                to
+                reset it.</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-[6px] form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-control" id="email" type="text" placeholder="email@example.com" formControlName="email">
+        </div>
+        <div class="flex flex-col gap-4">
+            <button type="submit" [disabled]="formGroup.invalid" class="btn btn-submit" (click)="request()">Send Reset
+                Link</button>
+            <p class="mx-auto text-body-medium text-neutral-500">
+                Don’t have an account? <a routerLink="/auth/register" class=" text-neutral-900">Sign up</a>
+            </p>
+        </div>
+    </div>
+</form>

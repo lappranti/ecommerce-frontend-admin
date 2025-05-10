@@ -1,0 +1,29 @@
+.collapsed {
+    margin-left: -260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &::after {
+        position: absolute;
+        content: '';
+        right: -12px;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        background-color: transparent;
+        z-index: 20;
+    }
+
+    &:hover {
+        margin-left: 0;
+    }
+
+}
+
+
+
+.onglet.active,
+.onglet:hover {
+    background-color: #e6e7e8;
+}

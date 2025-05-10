@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup"
+    class="flex flex-col gap-6 w-full bg-white sm:p-8 p-4  border border-white-200 shadow rounded-md">
+    <div class="mx-auto flex flex-col gap-2">
+        <img src="./images/Admin.svg" alt="">
+        <h2 class="text-heading-2 text-neutral-900">Welcome back</h2>
+    </div>
+    <div class="flex flex-col gap-4">
+        <!--  -->
+        <div class="flex flex-col gap-1">
+            <label for="" class="form-label">Email</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="exemple@gmail.com">
+        </div>
+        <!--  -->
+        <div class="flex flex-col gap-1">
+            <label for="password" class="form-label">Password</label>
+            <div class="relative flex items-center justify-end">
+                <button (click)="showPassword=!showPassword"
+                    class="absolute right-2 h-9 w-9 flex items-center justify-center hover:bg-white-100 rounded-full duration-300 transition-all">
+                    <span class="material-symbols-rounded">
+                        {{showPassword?'visibility':'visibility_off'}}
+                    </span>
+                </button>
+                <input id="password" [type]="showPassword?'text':'password'" formControlName="password"
+                    class="form-control" placeholder="********">
+            </div>
+        </div>
+        <a routerLink="/auth/request-password" class="text-body-medium text-neutral-900">Forgot my password</a>
+    </div>
+    <div class="flex flex-col gap-4">
+        <button type="submit" (click)="login()" [disabled]="formGroup.invalid" class="btn btn-submit">LOGIN</button>
+        <p class="mx-auto text-body-medium text-neutral-500">
+            Don’t have an account? <a routerLink="/auth/register" class=" text-neutral-900">Sign up</a>
+        </p>
+    </div>
+</form>

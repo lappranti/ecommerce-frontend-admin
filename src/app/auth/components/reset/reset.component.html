@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup" class="w-full h-full  flex flex-col gap-6 ">
+    <div class="flex flex-col gap-2">
+        <h2 class="text-center text-neutral-950 text-preset-1">Reset Your Password</h2>
+        <p class="text-center text-preset-5 text-neutral-600">Choose a new password to secure your account.</p>
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+            <label for="newPassword" class="form-label">New password</label>
+            <div class="relative flex items-center justify-end">
+                <button (click)="showPassword=!showPassword"
+                    class="absolute right-2 h-9 w-9 flex items-center justify-center hover:bg-white-100 rounded-full duration-300 transition-all">
+                    <span class="material-symbols-rounded">
+                        {{showPassword?'visibility':'visibility_off'}}
+                    </span>
+                </button>
+                <input id="newPassword" [type]="showPassword?'text':'password'" formControlName="newPassword"
+                    class="form-control" placeholder="********">
+            </div>
+        </div>
+        <div class="flex flex-col gap-1">
+            <label for="confirmPassword" class="form-label">Confirm password</label>
+            <div class="relative flex items-center justify-end">
+                <button (click)="showConirmPassword=!showConirmPassword"
+                    class="absolute right-2 h-9 w-9 flex items-center justify-center hover:bg-white-100 rounded-full duration-300 transition-all">
+                    <span class="material-symbols-rounded">
+                        {{showConirmPassword?'visibility':'visibility_off'}}
+                    </span>
+                </button>
+                <input id="confirmPassword" [type]="showConirmPassword?'text':'password'"
+                    formControlName="confirmNewPassword" class="form-control" placeholder="********">
+            </div>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-submit" (click)="reset()" [disabled]="formGroup.invalid">Reset
+        Password</button>
+</form>

@@ -1,0 +1,80 @@
+.container {
+    padding: 16px 24px;
+    border-bottom: 1px solid #E3E8EF;
+}
+
+.pp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background: #CDD5E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+
+    border: 1px solid #4869ee;
+    box-shadow: 0 0 0 3px #4869ee3f;
+
+}
+
+.dropdown {
+    .dropdown-content {
+        border-color: #E3E8EF;
+        top: calc(100% + 8px);
+        padding: 0;
+
+        .user-info {
+            padding: 16px;
+            border-bottom: 1px solid #E3E8EF;
+            cursor: default;
+
+            .img {
+                width: 32px;
+                height: 32px;
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            .name {
+                font-size: 14px;
+                font-family: 'Inter Medium';
+                color: #20293A;
+            }
+
+            .email {
+                font-size: 12px;
+                color: #677489;
+            }
+        }
+
+        .dropdown-option {
+            padding: 12px;
+            border-bottom: 1px solid #E3E8EF;
+
+            font-size: 14px;
+            font-family: 'Inter Medium';
+            color: #20293A;
+            transition: all .3s;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            &:hover,
+            &.active {
+                background-color: #f7fafb;
+            }
+        }
+
+        .logout {
+            color: #DD524C;
+        }
+    }
+}

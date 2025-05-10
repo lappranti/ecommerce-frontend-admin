@@ -1,0 +1,52 @@
+<div class="container w-[272px] h-screen   px-4 py-3 flex flex-col gap-4">
+    <div class=" w-full h-[52px]">
+        <img src="./images/logo.svg" alt="">
+    </div>
+    <ul class="grow flex flex-col gap-1">
+        <li>
+            <a routerLink="/dashboard/home" routerLinkActive="active"
+                class="flex items-center justify-between gap-2 p-3 text-preset-4 text-neutral-700">
+                <div class="flex items-center gap-2">
+                    <span class="icon material-symbols-rounded">
+                        home
+                    </span>
+                    <span>All Notes</span>
+                </div>
+                <span class="arrow material-symbols-rounded">
+                    chevron_right
+                </span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/dashboard/archived" routerLinkActive="active"
+                class="flex items-center justify-between gap-2 p-3 text-preset-4 text-neutral-700">
+                <div class="flex items-center gap-2">
+                    <span class="icon material-symbols-rounded">
+                        archive
+                    </span>
+                    <span>Archived Notes</span>
+                </div>
+                <span class="arrow material-symbols-rounded">
+                    chevron_right
+                </span>
+            </a>
+        </li>
+        <div class="w-full h-[1px] bg-neutral-200 my-2"></div>
+        <ul class="w-full grow flex flex-col gap-1" *ngIf=" tags&&tags.length">
+            <li *ngFor="let tag of tags">
+                <a routerLink="/dashboard/{{tag}}" routerLinkActive="active"
+                    class="flex items-center justify-between gap-2 p-3 text-preset-4 text-neutral-700">
+                    <div class="flex items-center gap-2">
+                        <span class="icon material-symbols-rounded">
+                            sell
+                        </span>
+                        <span>{{tag}}</span>
+                    </div>
+                    <span class="arrow  material-symbols-rounded">
+                        chevron_right
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </ul>
+</div>

@@ -1,0 +1,30 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="logo"><img src="./assets/img/logo.svg" alt="logo"></div>
+    <div class="user">
+        <div class="pp dropdown" [appDropdown]="'menu-header'">
+            <img src="./assets/img/icon-user-gray.svg" alt="">
+            <div class="dropdown-content" id="menu-header">
+                <div class="user-info" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+                    <div class="img">
+                        <img [src]="currentUser.profilePictureUrl?currentUser.profilePictureUrl:'./assets/img/user-pp.jpg'"
+                            alt="">
+                    </div>
+                    <div fxLayout="column">
+                        <span class="name">{{currentUser.username?currentUser.username:'Tyler Johnson'}}</span>
+                        <span class="email">{{currentUser?currentUser.email:"tyler.johnson@gmail.com"}}</span>
+                    </div>
+                </div>
+                <div *ngFor="let nav of navList" class="dropdown-option" fxLayout="row" fxLayoutGap="8px"
+                    fxLayoutAlign="start center" [routerLink]="nav.link" routerLinkActive="active">
+                    <span class="icon"><img [src]="nav.icon" alt=""></span>
+                    <span>{{nav.label}}</span>
+                </div>
+                <div class="logout dropdown-option" fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center"
+                    (click)="logout()">
+                    <span class="icon"><img src="./assets/img/icon-logout.svg" alt=""></span>
+                    <span>Log out</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

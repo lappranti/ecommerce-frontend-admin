@@ -1,0 +1,83 @@
+<div class="w-full flex flex-col gap-8 bg-white-900 pt-6 pb-8 rounded-lg border border-whihte-200">
+    <h4 class="px-4 text-heading-4-medium text-neutral-900">{{productId?'Modifier le produit':'Ajouter un produit '}}
+    </h4>
+    <div class="h-[1px] w-full bg-white-200"></div>
+    <div class=" mt-10 px-4">
+        <form [formGroup]="form" class="flex flex-col gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-1">
+                    <label for="" class="form-label">Titre <span class="color-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="status" class="form-label">Stock status</label>
+                    <ng-select appearance="outline" labelForId="status" [searchable]="false" formControlName="status">
+                        <ng-option *ngFor="let statut of status" [value]="statut">{{statut}}</ng-option>
+                    </ng-select>
+                </div>
+            </div>
+            <!--  -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-1">
+                    <label for="" class="form-label">Price <span class="color-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="price">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="" class="form-label">Available quantity <span class="color-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="availableQuantity">
+                </div>
+            </div>
+            <!--  -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-1">
+                    <label for="" class="form-label">Category <span class="color-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="category">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="" class="form-label">Marque <span class="color-danger"></span></label>
+                    <input type="text" class="form-control" formControlName="brand">
+                </div>
+            </div>
+            <!--  -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-1">
+                    <label for="" class="form-label">Description <span class="color-danger">*</span></label>
+                    <textarea name="" class="form-control-textarea " formControlName="description" rows="6"
+                        id=""></textarea>
+                </div>
+                <!--  -->
+                <div class="flex flex-col gap-8">
+                    <label for="images" class="    flex flex-col gap-1">
+                        <span class="form-label">Images <span class="color-danger">*</span></span>
+                        <div class="form-control flex items-center gap-4 text-body-medium text-neutral-300">
+                            <span class="material-symbols-rounded">
+                                upload
+                            </span>
+                            <span>Choose product images</span>
+                        </div>
+                    </label>
+                    <div class="flex gap-8 flex-wrap" *ngIf="files && files.length">
+                        <div *ngFor="let file of files"
+                            class="w-14 h-14 rounded-sm bg-white-100 flex items-center justify-center relative">
+                            <button (click)="removeFile(file)"
+                                class="text-[#5C5F6A] w-6 h-6 rounded-full border border-[#E6E7E8] bg-white-100 flex items-center justify-center absolute -top-3 -right-3 z-10">
+                                <span class="material-symbols-rounded">
+                                    close
+                                </span>
+                            </button>
+                            <div class="w-11 h-11 relative rounded-sm overflow-hidden">
+                                <img class="absolute  object-center object-contain" [src]="file" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <input required="true" accept=".jpeg,.jpg,.png" type="file" (change)="handleFileUpload($event)"
+                        multiple id="images" class="form-control hidden">
+                </div>
+            </div>
+            <!--  -->
+            <button type="submit" (click)="submit()" [disabled]="form.invalid || files.length === 0"
+                class="btn btn-submit mt-4 max-w-max">Save
+                Product </button>
+        </form>
+    </div>
+</div>

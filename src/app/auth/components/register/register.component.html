@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup"
+    class="flex flex-col gap-6 w-full bg-white sm:p-8 p-4  border border-white-200 shadow rounded-md">
+    <div class="mx-auto flex flex-col gap-2">
+        <img src="./images/Admin.svg" alt="">
+        <h2 class="text-heading-2 text-neutral-900">Get started</h2>
+    </div>
+    <div class="flex flex-col gap-4">
+        <!--  -->
+        <div class="flex flex-col gap-1">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" formControlName="email" class="form-control" placeholder="exemple@gmail.com">
+        </div>
+        <!--  -->
+        <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
+            <div class="flex flex-col gap-1">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" id="firstName" formControlName="firstName" class="form-control"
+                    placeholder="exemple@gmail.com">
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" id="lastName" formControlName="lastName" class="form-control"
+                    placeholder="exemple@gmail.com">
+            </div>
+        </div>
+        <!--  -->
+        <div class="flex flex-col gap-1">
+            <label for="password" class="form-label">Password</label>
+            <div class="relative flex items-center justify-end">
+                <button (click)="showPassword=!showPassword"
+                    class="absolute right-2 h-9 w-9 flex items-center justify-center hover:bg-white-100 rounded-full duration-300 transition-all">
+                    <span class="material-symbols-rounded">
+                        {{showPassword?'visibility':'visibility_off'}}
+                    </span>
+                </button>
+                <input id="password" [type]="showPassword?'text':'password'" formControlName="password"
+                    class="form-control" placeholder="********">
+            </div>
+        </div>
+        <mat-checkbox color="none" class="flex items-center gap-2 text-body-medium text-neutral-600">I
+            agree to the Terms of Use and
+            Privacy Policy
+        </mat-checkbox>
+    </div>
+    <div class="flex flex-col gap-4">
+        <button type="submit" (click)="register()" [disabled]="formGroup.invalid" class="btn btn-submit">CREATE
+            ACCOUNT</button>
+        <p class="mx-auto text-body-medium text-neutral-500">
+            No account yet <a routerLink="/auth/login" class="text-neutral-900">? Sign in</a>
+        </p>
+    </div>
+</form>

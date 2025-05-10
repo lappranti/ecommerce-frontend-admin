@@ -1,0 +1,80 @@
+<div class="w-full h-screen  flex relative">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white z-20  h-screen min-h-screen border-r border-white-200 transition-[margin] ml-0 duration-500"
+        [ngClass]="isMenuCollapsed?'collapsed':''">
+        <div class="header h-[72px] min-h-[72px] flex justify-center items-center">
+            <img src="./images/Admin.svg" alt="">
+        </div>
+        <div class=" py-8 px-3 flex flex-col gap-1">
+            <a [routerLink]="item.link" routerLinkActive="active"
+                class="onglet flex items-center bg-white transition-all duration-300 text-body-medium text-neutral-500 gap-2 px-3 py-2  rounded-lg"
+                *ngFor="let item of links">
+                <span class="material-symbols-rounded">
+                    {{item.icon}}
+                </span>
+                <span>{{item.label}}</span>
+            </a>
+        </div>
+    </div>
+    <!-- Main -->
+    <div class="h-screen overflow-y-auto flex-1 flex flex-col  relative ">
+        <!-- header -->
+        <!-- <div class="w-full h-[72px] min-h-[72px]"></div> -->
+        <div
+            class="shadow sticky z-10 top-0 left-0   w-full h-[72px] min-h-[72px] px-6 bg-white flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button mat-icon-button (click)="toggleMenu()">
+                    <span class="material-symbols-rounded">
+                        menu
+                    </span>
+                </button>
+                <div class="flex gap-1 items-center">
+                    <span>Admin</span>
+                    <span class="material-symbols-rounded">
+                        chevron_right
+                    </span>
+                    <span>Dashboard</span>
+                </div>
+            </div>
+            <div class="dropdown" [appDropdown]="'user-menu'">
+                <button
+                    class="w-10 h-10 rounded-full bg-white-100 flex justify-center items-center ring-2 ring-white-200 text-neutral-900">
+                    <span class="material-symbols-rounded text-4xl">
+                        account_circle
+                    </span>
+                </button>
+                <div class="dropdown-content text-body-medium " id="user-menu">
+                    <div class="dropdown-option flex items-center gap-2 text-neutral-500" (click)="logout()"
+                        title="Logout">
+                        <span class="material-symbols-rounded">
+                            notifications
+                        </span>
+                        <span>
+                            Notifications
+                        </span>
+                    </div>
+                    <div class="dropdown-option flex items-center gap-2 text-neutral-500" (click)="logout()"
+                        title="Logout">
+                        <span class="material-symbols-rounded">
+                            settings
+                        </span>
+                        <span>
+                            Settings
+                        </span>
+                    </div>
+                    <div class="dropdown-option flex items-center gap-2 text-R-700" (click)="logout()" title="Logout">
+                        <span class="material-symbols-rounded">
+                            logout
+                        </span>
+                        <span>
+                            Déconnexion
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 py-8 grow">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
