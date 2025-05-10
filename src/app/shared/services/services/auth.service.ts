@@ -54,7 +54,7 @@ export class AuthService {
       'Content-Type': 'application/json',
     });
     return this.http
-      .post(`${this.apiUrlAuth}/resetPassword`, payload, { headers })
+      .post(`${this.apiUrlAuth}/reset-password`, payload, { headers })
       .pipe(
         tap((res: any) => {
           const session = res as Session;
